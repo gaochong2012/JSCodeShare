@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Tao Shi">
+    <title>city-picker</title>
+
+    <link href="css/city-picker.css" rel="stylesheet">
+	
+	<style>
+	  .city-picker-span{
+	  
+	      width:300px !important;
+	  }
+	  
+	</style>
+	
+</head>
+<body>
+
+<div style="position: relative;"><!-- container -->
+  <input id="city-picker2" readonly type="text">
+</div>
+
+<button  onclick="test()">获得城市编码</button>
+
+<!-- Scripts -->
+<script src="js/jquery-3.0.0.min.js"></script>
+<script src="js/city-picker.data.js"></script>
+<script src="js/city-picker.js"></script>
+
+<script>
+
+    $("#city-picker2").citypicker({
+      province: "湖北省",
+      city: "武汉市",
+      district: ""
+    });
+
+    function test() {
+
+        var code = 0;
+
+        $(".select-item").each( function () {
+
+           var z = $(this).attr("data-count");
+
+           switch ( z  ){
+                case "province":
+                    code = $( this ).attr("data-code");
+                    break;
+                case "city":
+                    code = $( this ).attr("data-code");
+                    break;
+                case "district":
+                    code = $( this ).attr("data-code");
+                    break;
+            }
+        } );
+
+        alert(  code );
+    }
+
+
+</script>
+
+</body>
+</html>
